@@ -1,0 +1,15 @@
+fastdup~=1.25
+pandas~=2.0.3
+fiftyone~=0.21.2
+tensorflow~=2.12.1
+click~=8.1.4
+Pillow~=10.0.0
+numpy~=1.24.3
+keras~=2.12.0
+requests>=2.28.1
+locust>=2.15.1
+uvicorn>=0.22.0
+fastapi>=0.100.0
+gradio>=3.36.1
+matplotlib
+torch
