@@ -4,12 +4,19 @@ of [Airbus Ship Detection Challenge](https://www.kaggle.com/c/airbus-ship-detect
 
 ## Installation
 
-Clone project ```$ git clone git@github.com:MykytaKyt/test-task-winstars.git```
+Clone project
+
+```$ git clone git@github.com:MykytaKyt/test-task-winstars.git```
+
 Then you need download model weights and unzip to root. Download by [link](https://drive.google.com/file/d/19CFruE4kWbvXzOKCOtTyzY4cCq7AgeMu/view?usp=drive_link)
 ### Install the requirements
-Create conda env ```$ conda create --name py309 python==3.9```
+Create conda env
 
-Then activate it ```$ conda activate py309```
+```$ conda create --name py309 python==3.9```
+
+Then activate it
+
+```$ conda activate py309```
 
 Run  ```$ pip install -r requirements.txt```
 
@@ -32,25 +39,33 @@ To start preprocess data you need use `utils/stages` and there `Makefile`.
 Run command ```cd utils/stages```
 #### Data Filtering
 To filter the dataset, run the following command:
+
 ```make filter```
+
 This will execute the `filter.py` script,
 which filters the input dataset file and saves the filtered dataset to an output file.
 It needs to remove images without masks.
 #### Data Cleaning
 To clean the filtered dataset, run the following command:
+
 ```make clean```
+
 This will execute the `deduplication.py` script, which performs data deduplication
 and other cleaning operations on the filtered dataset. It uses fastdub library, to find and remove blurry files,
 broken files, duplicates, outliers, too bright and too dark images. 
 #### Dataset Splitting
 To split the cleaned dataset into train and test sets, run the following command:
+
 ```make split```
+
 This will execute the `train_test_split.py` script, which splits the cleaned dataset into train and test sets based on
 the provided test size. For train test split used fiftyone lib, to calculate uniqueness of every image
 and then sort by it. Then the most unique images are put into the test set based on the split percentage.
 #### Dataset Creation
 To create the final dataset, run the following command:
+
 ```make create```
+
 This will execute the `dataset.py` script, which creates a dataset by processing the split dataset and corresponding
 image files. The final dataset will be saved in the specified output folder.
 ## Usage
@@ -80,7 +95,9 @@ To train model, you can modify training parameters in `Makefile`.
 * train_dir: The path to the directory containing the training data.
 * test_dir: The path to the directory containing the testing data.
 ```
-And then simply run `make train`
+And then simply run 
+
+`make train`
 
 ### Inference
 To run inference script modify `Makefile` if you need.
