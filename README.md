@@ -6,7 +6,7 @@ of [Airbus Ship Detection Challenge](https://www.kaggle.com/c/airbus-ship-detect
 
 Clone project
 
-```$ git clone git@github.com:MykytaKyt/test-task-winstars.git```
+```$ git@github.com:MykytaKyt/airbus-ship-detection.git```
 
 Then you need download model weights and unzip to root. Download by [link](https://drive.google.com/file/d/19CFruE4kWbvXzOKCOtTyzY4cCq7AgeMu/view?usp=drive_link)
 ### Install the requirements
