@@ -1,5 +1,5 @@
-# Winstars Test Task: Airbus Ship Detection Challenge
-This is a test task for the Winstars. The project contains my solution
+# Airbus Ship Detection Challenge
+The project contains my solution
 of [Airbus Ship Detection Challenge](https://www.kaggle.com/c/airbus-ship-detection/overview).
 
 ## Installation
@@ -166,11 +166,11 @@ You can monitor the load test progress and view statistics on the Locust web int
 
 In the "Airbus Ship Detection Challenge," the dataset presents several challenges that need to be addressed. Firstly, there is a limited dataset size (a big part of the images were without ships), which can lead to overfitting and hinder the model's generalization ability. Additionally, annotation errors, such as mislabeling or inaccurate boundary delineation, can introduce inconsistencies. Moreover, the class imbalance between ships and non-ship regions poses a difficulty for the model to effectively learn ship characteristics (compared to the non-ship region). Ships can vary significantly in terms of size, shape, orientation, and appearance. This variation can make it challenging for the model to accurately detect ships across different instances, especially if the training data does not cover the full range of variations. Lastly, limited diversity in environmental conditions and the presence of data artifacts and noise further impact the model's performance.
 
-To solve this, I focused on preprocessing the data. I utilized techniques such as data augmentation to expand the dataset and reduce overfitting. Additionally, I applied cleaning of blurry, too-black or too-white images, finding outliers and duplicates, to prevent overfitting. And take the most unique images for validation.
+To solve this, I focused on preprocessing the data. I utilized techniques such as data augmentation to expand the dataset and reduce overfitting. Additionally, I applied cleaning of blurry, too-black, or too-white images, finding outliers and duplicates, to prevent overfitting. And take the most unique images for validation.
 
 In terms of model selection, I thoroughly evaluated different architectures and settled on the Unet model with a ResNet50 backbone. This choice was driven by the need to segment small objects accurately, which a simple Unet architecture struggled with. The Unet model with a ResNet50 backbone showed promise in overcoming this challenge.
 
 However, during training, I encountered some hurdles. I had some problems with detecting small-sized ships and overfitting. Despite the limitations, the model achieved a dice coefficient of 0.84 on the training set and 0.66 on the validation set. I recognized the need to mitigate the impact of waves and shadows through the implementation of a threshold-based fix. This adjustment improved the model's performance and could be further refined using tools like Gradio or inference.py, to test the model on difficult images. Maybe it is a good idea to make a test set with the most difficult images, but it needs more time and manual work.
 
-Alternatively, you could try newer models or other approaches. For example, like segment everything from Facebook. Or combine segmentation with something else.
+Alternatively, you could try newer models or other approaches. For example, segment everything from Facebook. Or combine segmentation with something else.
 Looking ahead, I believe a combination of detection, segmentation, and post-processing techniques would yield even better results. Integrating a detection model to identify ships and then applying segmentation to the cropped ship regions could enhance accuracy. However, due to time constraints, I was unable to implement this approach.
